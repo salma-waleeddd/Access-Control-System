@@ -46,12 +46,6 @@ uint8_t Authentication(){
      BTN=KPD_GetButtonValue();
      if(BTN!=0){
       if(BTN!=0xFF){
-        if(digits<Admin_PinLen){
-         enteredpassword[digits]=(char)BTN;
-         _delay_ms(100);
-         LCD_WriteData('*',LCD_8bitMode);
-         digits++;
-        }
          if(BTN=='#'){
          LCD_Instruction(LCD_ClearScreen,LCD_8bitMode);
          enteredpassword[digits]='\0';
@@ -99,6 +93,12 @@ uint8_t Authentication(){
             return 2;
            }
          }
+        }
+        else if(digits<Admin_PinLen){
+         enteredpassword[digits]=(char)BTN;
+         _delay_ms(100);
+         LCD_WriteData('*',LCD_8bitMode);
+         digits++;
         }
      }
    }
