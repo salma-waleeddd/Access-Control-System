@@ -65,7 +65,10 @@ uint8_t Authentication(){
             LCD_WriteString("Opening Door",LCD_8bitMode);
             Authentication_GreenLedOn();
             Authentication_DelaySeconds(Authentication_DoorOpenSeconds);
+            LCD_Instruction(LCD_ClearScreen,LCD_8bitMode);
+            LCD_WriteString("Closing Door",LCD_8bitMode);
             Authentication_GreenLedOff();
+           _delay_ms(1000);
             LCD_Instruction(LCD_ClearScreen,LCD_8bitMode);
             LCD_WriteString("enter pasword:",LCD_8bitMode);
             LCD_Go_To_XY(1,0);
