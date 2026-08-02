@@ -1,17 +1,10 @@
-/**
- * @file    BUZZER_Config.h
- * @author  (developer)
- * @author  (reviewer)
- * @brief
- * @details
- * @version
- * @date
- * @copyright Copyright (c) 2026, Gestell Company
- */
+//we here change here the pins and group of hardware component
+#ifndef _BUZZER_CONFIG_H
+#define _BUZZER_CONFIG_H
 
-#ifndef BUZZER_CONFIG_H
-#define BUZZER_CONFIG_H
+#include "../../MCAL/DIO/DIO_Interface.h"
 
+#define Buzzer_Group Dio_GroupC
+#define Buzzer_Pin   Dio_Pin5
 
-
-#endif /* BUZZER_CONFIG_H */
+#endif

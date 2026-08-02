@@ -1,17 +1,8 @@
-/**
- * @file    BUZZER_Interface.h
- * @author  (developer)
- * @author  (reviewer)
- * @brief
- * @details
- * @version
- * @date
- * @copyright Copyright (c) 2026, Gestell Company
- */
+#ifndef _BUZZER_INTERFACE_H
+#define _BUZZER_INTERFACE_H
 
-#ifndef BUZZER_INTERFACE_H
-#define BUZZER_INTERFACE_H
+void Buzzer_Init(void);
+void Buzzer_On(void);
+void Buzzer_Off(void);
 
-
-
-#endif /* BUZZER_INTERFACE_H */
+#endif
