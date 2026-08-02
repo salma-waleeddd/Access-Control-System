@@ -4,7 +4,7 @@
 
 #include "../../MCAL/DIO/DIO_Interface.h"
 
-#define Buzzer_Group Dio_GroupC
-#define Buzzer_Pin   Dio_Pin5
+#define Buzzer_Group Dio_GroupD
+#define Buzzer_Pin   Dio_Pin6
 
 #endif

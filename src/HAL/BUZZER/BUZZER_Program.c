@@ -4,15 +4,15 @@
 void Buzzer_Init(void)
 {
     DIO_InitPin(Buzzer_Group, Buzzer_Pin, Output);
-    DIO_WritePin(Buzzer_Group, Buzzer_Pin, Low);
+    DIO_WritePin(Buzzer_Group, Buzzer_Pin, High);
 }
 
 void Buzzer_On(void)
 {
-    DIO_WritePin(Buzzer_Group, Buzzer_Pin, High);
+    DIO_WritePin(Buzzer_Group, Buzzer_Pin, Low);
 }
 
 void Buzzer_Off(void)
 {
-    DIO_WritePin(Buzzer_Group, Buzzer_Pin, Low);
+    DIO_WritePin(Buzzer_Group, Buzzer_Pin, High);
 }
