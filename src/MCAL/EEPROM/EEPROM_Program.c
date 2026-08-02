@@ -23,12 +23,12 @@ void EEPROM_WriteData(uint8_t address,uint8_t *data){
   
 }
 
-void EEPROM_ReadData(uint8_t address,uint8_t data){
+void EEPROM_ReadData(uint8_t address,uint8_t *data){
     while(EECR_Reg&(1<<EEPROM_EERE));
     EEARH_Reg=address>>8;
     EEARL_Reg=address&0xFF;
     SetBit(EECR_Reg,EEPROM_EERE);
-    data=EEDR_Reg;
+    *data=EEDR_Reg;
 }
 /*
 for adress choose from eear9 to eear0
