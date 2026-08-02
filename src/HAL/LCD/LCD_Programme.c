@@ -9,6 +9,7 @@ DIO_WriteGroup(LCD_DataGroup,Data);
 DIO_WritePin(LCD_EGroup,LCD_EPin,High);
 _delay_ms(1);
 DIO_WritePin(LCD_EGroup,LCD_EPin,Low);
+_delay_us(50); //let the LCD finish executing this write before the next transaction
     }
     else if(ModeType==LCD_4bitMode){
         //we will write it
@@ -23,6 +24,11 @@ DIO_WriteGroup(LCD_DataGroup,Instruction);
 DIO_WritePin(LCD_EGroup,LCD_EPin,High);
 _delay_ms(1);
 DIO_WritePin(LCD_EGroup,LCD_EPin,Low);
+if(Instruction==LCD_ClearScreen){
+    _delay_ms(2); //clear display needs up to 1.52ms to execute
+}else{
+    _delay_us(50); //other instructions need ~37-43us to execute
+}
     }
     else if(ModeType==LCD_4bitMode){}
 }
