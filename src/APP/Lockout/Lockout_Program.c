@@ -21,6 +21,7 @@ void Lockout_Init(void)   //called once when the system starts//
 {
     s_failedAttempts = 0;
     s_lockoutActive = 0;
+    Led_Init(Lockout_RedLedGroup,Lockout_RedLedPin);
 }
 /******************************************************************/
 
@@ -42,11 +43,14 @@ void Lockout_ResetCounter(void){     // resets counter to zero
 
 void Lockout_Start(void) {           // turned on lockout mode
     s_lockoutActive = 1;
+    Led_on(Lockout_RedLedGroup,Lockout_RedLedPin,SourceConnection);
+    Alarm_ShortBeep();
 }
 /******************************************************************/
 
 void Lockout_Stop(void) {         // turned off lockout mode
     s_lockoutActive = 0;
+    Led_off(Lockout_RedLedGroup,Lockout_RedLedPin,SourceConnection);
     Lockout_ResetCounter();
 }
 /******************************************************************/
@@ -92,6 +96,7 @@ uint8_t lockout_mechanism(void){
 
           // Show "enter password" again
           LCD_Instruction(LCD_ClearScreen, LCD_8bitMode);
+          LCD_Go_To_XY(0, 0);
           LCD_WriteString("enter password:", LCD_8bitMode);
           LCD_Go_To_XY(1, 0);
       }

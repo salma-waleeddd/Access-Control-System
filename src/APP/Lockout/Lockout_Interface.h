@@ -14,7 +14,10 @@
 #include"../../MCAL/Timer0/Timer0_Interface.h"
 #include"stdint.h"
 #include"../../HAL/LCD/LCD_Interface.h"
+#include"../../HAL/LED/LED_Interface.h"
 #include"../../LIB/STD_TYPES.h"
+#include"../Alarm/Alarm_Interface.h"
+#include"Lockout_Config.h"
 #define F_CPU 8000000UL
 
 #define MAX_FAILED_ATTEMPTS    3
