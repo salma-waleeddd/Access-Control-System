@@ -7,15 +7,19 @@
 #include"MCAL/Timer0/Timer0_Interface.h"
 #include"MCAL/UART/UART_Interface.h"
 #include"APP/Authentication/Authentication_Interface.h"
+#include"APP/Alarm/Alarm_Interface.h"
+#include"APP/Admin/Admin_Interface.h"
 
 #define F_CPU 8000000UL
 
 void main()
 {
-    uint8_t password[3]={'1','2','3'};    //must be char
     LCD_Init(LCD_8bitMode);
     KPD_Init();
+    Alarm_Init();
     Lockout_Init();
+    Admin_Init();
+    Authentication_Init();
     Timer0_Config_t config={
      .TimerMode=Timer0_CTCMode,
      .CompareMatchValue=249,
@@ -45,6 +49,6 @@ void main()
     if(lockout_mechanism()){
       continue;  // Skip kpd
     }
-    Authentication(password);
+    Authentication();
    }
 }
