@@ -1,17 +1,7 @@
-/**
- * @file    EEPROM_Interface.h
- * @author  (developer)
- * @author  (reviewer)
- * @brief
- * @details
- * @version
- * @date
- * @copyright Copyright (c) 2026, Gestell Company
- */
-
-#ifndef EEPROM_INTERFACE_H
-#define EEPROM_INTERFACE_H
 
 
-
-#endif /* EEPROM_INTERFACE_H */
+#include<stdint.h>
+#include"../Atmega32regmap.h"
+#include"../../COMMON/Bitmath.h"
+#include"../../COMMON/Definition.h"
+#include"EEPROM_Private.h"

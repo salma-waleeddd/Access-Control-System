@@ -1,17 +1,9 @@
-/**
- * @file    UART_Config.h
- * @author  (developer)
- * @author  (reviewer)
- * @brief
- * @details
- * @version
- * @date
- * @copyright Copyright (c) 2026, Gestell Company
- */
+#ifndef _UART_CONFIG_H
+#define _UART_CONFIG_H
 
-#ifndef UART_CONFIG_H
-#define UART_CONFIG_H
+// REG = (REG&~Mask)|Value
 
-
-
-#endif /* UART_CONFIG_H */
+// (REG&~Mask) -> Clear the Specific Bit  to Update it 
+// Mask -> Write the One in Specific Bit   
+//     0 0 0 0 0 1 1 0 
+#endif
