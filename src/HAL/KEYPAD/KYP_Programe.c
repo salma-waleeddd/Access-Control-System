@@ -59,9 +59,17 @@ uint8_t KPD_GetButtonValue()
             DIO_ReadPin(Dio_GroupD,Dio_Pin2+C,&Result);
             if(Result==Pressed)
             {
-                DIO_WritePin(Dio_GroupB,Dio_Pin4+R,High);
-                _delay_ms(100);
-                return keypad[R][C];
+                _delay_ms(20); //debounce
+                DIO_ReadPin(Dio_GroupD,Dio_Pin2+C,&Result);
+                if(Result==Pressed)
+                {
+                    while(Result==Pressed)
+                    {
+                        DIO_ReadPin(Dio_GroupD,Dio_Pin2+C,&Result); //wait for release
+                    }
+                    DIO_WritePin(Dio_GroupB,Dio_Pin4+R,High);
+                    return keypad[R][C];
+                }
             }
         }
         DIO_WritePin(Dio_GroupB,Dio_Pin4+R,High);
