@@ -199,11 +199,11 @@ static void Admin_HandleAdd(void)
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"New PIN:", LCD_8bitMode);
-    Admin_ScanPassword(0, 1, Pin, Admin_PinLen + 1);
+    Admin_ScanPassword(1, 0, Pin, Admin_PinLen + 1);
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"Confirm PIN:", LCD_8bitMode);
-    Admin_ScanPassword(0, 1, PinConfirm, Admin_PinLen + 1);
+    Admin_ScanPassword(1, 0, PinConfirm, Admin_PinLen + 1);
 
     Admin_ClearAndHome();
     if(strcmp(Pin, PinConfirm) == 0)
@@ -232,7 +232,7 @@ static void Admin_HandleRemove(void)
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"User # (0-idx):", LCD_8bitMode);
-    Admin_ScanInput(0, 1, IndexBuffer, sizeof(IndexBuffer));
+    Admin_ScanInput(1, 0, IndexBuffer, sizeof(IndexBuffer));
 
     Admin_ClearAndHome();
     int UserInput = IndexBuffer[0] - '0'; // better atoi to be used
@@ -264,7 +264,7 @@ static void Admin_HandleChange(void)
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"User # (0-idx):", LCD_8bitMode);
-    Admin_ScanInput(0, 1, IndexBuffer, sizeof(IndexBuffer));
+    Admin_ScanInput(1, 0, IndexBuffer, sizeof(IndexBuffer));
     int UserInput = IndexBuffer[0] - '0'; // better atoi to be used
     Index = (uint8_t)UserInput;
 
@@ -277,11 +277,11 @@ static void Admin_HandleChange(void)
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"New PIN:", LCD_8bitMode);
-    Admin_ScanPassword(0, 1, NewPin, Admin_PinLen + 1);
+    Admin_ScanPassword(1, 0, NewPin, Admin_PinLen + 1);
 
     Admin_ClearAndHome();
     LCD_WriteString((uint8_t *)"Confirm PIN:", LCD_8bitMode);
-    Admin_ScanPassword(0, 1, ConfirmPin, Admin_PinLen + 1);
+    Admin_ScanPassword(1, 0, ConfirmPin, Admin_PinLen + 1);
 
     Admin_ClearAndHome();
     if(strcmp(NewPin, ConfirmPin) == 0){
