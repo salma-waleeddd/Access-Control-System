@@ -1,20 +1,13 @@
 /**
 * @file    
-* @author (developer)  
-* @author(reviewer)
-* @brief  
-* @details
+* @author (salma mohamed)  
+* @author(yasmin)
+* @brief  authentication 
+* @details user enter keypad,password is displayed as '*',password is compared with eeprom 
+*          ,correct password grant access, failuer increment failer counter 
 * @version
 * @date
 * @copyright Copyright (c) 2026, Gestell Company
-*/
-/*Authentication
-
-- User enters password using Keypad.
-- Password is displayed as '*'.
-- Password is compared with EEPROM stored password.
-- Correct password grants access.
-- Incorrect password increments failure counter.
 */
 #include<string.h>
 #include"Authentication_Interface.h"

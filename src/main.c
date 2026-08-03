@@ -27,21 +27,6 @@ void main()
     TIMER0_Init(config);
     TIMER0_Start(Timer0_Prescaller64);
     TIMER0_SetCallBackFunction(Timer0_CompareMatchInterrupt,Timer_ISR);
-
-    // Uart_Config_t Config={
-    //     .ModeSelect=Uart_AsynchronousMode,
-    //     .StopBitSelect=Uart_1StopBit,
-    //     .ParitySelect = Uart_ParityDisabled,
-    //     .SpeedMode = Uart_NormalSpeed,
-    //     .BaudRate = 9600,
-    //     .SizeCharacterSelect = 8,
-    //     .EnbaleSelect = Uart_EnableTxOnly,
-    //     .InterruptSelect = Uart_InterruptDisabled
-    // };
-    // UART_Init(Config);
-    // UART_SendStringPolling("welcome");
-    // UART_SendBytePolling(0x00FF);
-
     LCD_Instruction(LCD_ClearScreen,LCD_8bitMode);
     LCD_WriteString("enter pasword:",LCD_8bitMode);
     LCD_Go_To_XY(1,0);

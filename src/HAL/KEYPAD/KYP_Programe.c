@@ -8,27 +8,6 @@ static uint8_t keypad[4][3]={
 };
 
 void KPD_Init(){
-    //colum are 3
-    // DIO_InitPin(Dio_GroupB,Dio_Pin4,Output);
-    // DIO_InitPin(Dio_GroupB,Dio_Pin5,Output);
-    // DIO_InitPin(Dio_GroupB,Dio_Pin6,Output);
-    // //Init value for coloum 
-    // DIO_WritePin(Dio_GroupD,Dio_Pin0,High); 
-    // DIO_WritePin(Dio_GroupD,Dio_Pin1,High);
-    // DIO_WritePin(Dio_GroupD,Dio_Pin2,High);
-
-    // //row are 4
-    // DIO_InitPin(Dio_GroupB,Dio_Pin0,Input);
-    // DIO_InitPin(Dio_GroupB,Dio_Pin1,Input);
-    // DIO_InitPin(Dio_GroupB,Dio_Pin2,Input);
-    // DIO_InitPin(Dio_GroupB,Dio_Pin3,Input);
-
-    // DIO_WritePin(Dio_GroupB,Dio_Pin0,High);
-    // DIO_WritePin(Dio_GroupB,Dio_Pin1,High);
-    // DIO_WritePin(Dio_GroupB,Dio_Pin2,High);
-    // DIO_WritePin(Dio_GroupB,Dio_Pin3,High);
-
-
     KPD_ROW_PINS1_init;
     KPD_ROW_PINS2_init;
     KPD_ROW_PINS3_init;
