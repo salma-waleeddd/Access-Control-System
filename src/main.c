@@ -1,4 +1,3 @@
-// doxygen style
 #include <util/delay.h>
 #include "HAL/LCD/LCD_Interface.h"
 #include "HAL/SEGMENT/SEGMENT_Interface.h"
