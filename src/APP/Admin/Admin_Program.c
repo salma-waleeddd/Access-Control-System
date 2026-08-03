@@ -10,7 +10,7 @@
 static char Admin_Pins[Admin_MaxUsers][Admin_PinSlotLen];
 static uint8_t Admin_UserCount = 0;
 
-static void Admin_ClearAndHome(void)
+static void Admin_ClearAndHome()
 {
     LCD_Instruction(LCD_ClearScreen, LCD_8bitMode);
     LCD_Go_To_XY(0, 0);
@@ -72,26 +72,26 @@ static void Admin_ScanInput(uint8_t x, uint8_t y, char *buffer, uint8_t maxLen)
     buffer[index] = '\0';
 }
 
-static void Admin_Save(void)
+static void Admin_Save()
 {
     uint8_t i, j;
     uint8_t Byte;
 
     Byte = Admin_UserCount;
     EEPROM_WriteData(Admin_EepromCountAddr, &Byte);
-    for(i = 0; i < Admin_UserCount; i++)
+    for(i = 0; i < Admin_UserCount; i++)    // represents the number of users
     {
-        for(j = 0; j < Admin_PinSlotLen; j++)
+        for(j = 0; j < Admin_PinSlotLen; j++)  // reprsents the values of each slot of the user pin (we have 5 slots for each user, 4 for the pin and 1 for the null terminator)
         {
-            Byte = (uint8_t)Admin_Pins[i][j];
-            EEPROM_WriteData(Admin_EepromPinsAddr + (i * Admin_PinSlotLen) + j, &Byte);
+            Byte = (uint8_t)Admin_Pins[i][j]; // copy the value of the pin slot to the byte variable
+            EEPROM_WriteData(Admin_EepromPinsAddr + (i * Admin_PinSlotLen) + j, &Byte); // wrute the value of the pin slot to the EEPROM at the correct address
         }
     }
     Byte = Admin_EepromMarkerValue;
     EEPROM_WriteData(Admin_EepromMarkerAddr, &Byte);
 }
 
-void Admin_Init(void)
+void Admin_Init()
 {
     uint8_t i, j;
     uint8_t Marker;
@@ -125,11 +125,11 @@ void Admin_Init(void)
     }
 }
 
-uint8_t Admin_Count(void) {
+uint8_t Admin_Count() {
     return Admin_UserCount;
 }
 
-uint8_t Admin_Authenticate(const char *Pin) {
+uint8_t Admin_Authenticate(const char *Pin) {  
     uint8_t i;
 
     for(i = 0; i < Admin_UserCount; i++)
@@ -150,7 +150,7 @@ static uint8_t Admin_AddUser(const char *Pin) {
 
     memcpy(Admin_Pins[Admin_UserCount], Pin, Admin_PinLen);
     Admin_Pins[Admin_UserCount][Admin_PinLen] = '\0';
-    Admin_UserCount++;
+    Admin_UserCount++;                                     //////////
     Admin_Save();
     return 1;
 }
@@ -184,7 +184,7 @@ static uint8_t Admin_ChangePin(uint8_t Index, const char *NewPin) {
     return 1;
 }
 
-static void Admin_HandleAdd(void)
+static void Admin_HandleAdd() /////////
 {
     char Pin[Admin_PinLen + 1];
     char PinConfirm[Admin_PinLen + 1];
@@ -218,7 +218,7 @@ static void Admin_HandleAdd(void)
     _delay_ms(2500);
 }
 
-static void Admin_HandleRemove(void)
+static void Admin_HandleRemove()
 {
     char IndexBuffer[3];
 
@@ -247,7 +247,7 @@ static void Admin_HandleRemove(void)
     _delay_ms(2000);
 }
 
-static void Admin_HandleChange(void)
+static void Admin_HandleChange()
 {
     char IndexBuffer[3];
     char NewPin[Admin_PinLen + 1];
@@ -294,7 +294,7 @@ static void Admin_HandleChange(void)
     _delay_ms(2000);
 }
 
-void Admin_RunMenu(void) {
+void Admin_RunMenu() { ////////////// ADMIN MENU
     uint8_t Running = 1;
     uint8_t MenuKey;
 
