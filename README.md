@@ -27,6 +27,8 @@ This project integrates most of the peripherals studied during the Embedded Syst
 - Receive user input from Keypad
 - Report events through UART
 - Build a modular embedded software architecture
+- Entering Admin mode by writing '0000' then '#' to display the admin menu
+- Admin menu contain 1-add 2-remove 3- delete -4 exit to return to normal mode 
 
 ---
 
